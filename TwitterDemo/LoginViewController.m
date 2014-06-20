@@ -43,12 +43,8 @@
 }
 
 - (void)loginComplete {
-    NSLog(@"LOGIN COMPLETE BOYZ");
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.window addSubview:appDelegate.mainViewController.view];
     [self.view removeFromSuperview];
-    
-    
 }
 @end

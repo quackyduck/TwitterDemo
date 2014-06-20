@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A071EC01953B0570034A027 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A071EBE1953B0570034A027 /* LoginViewController.m */; };
 		0A071EC11953B0570034A027 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A071EBF1953B0570034A027 /* LoginViewController.xib */; };
+		0A071EC71954CDDA0034A027 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A071EC51954CDDA0034A027 /* TweetsViewController.m */; };
+		0A071EC81954CDDA0034A027 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A071EC61954CDDA0034A027 /* TweetsViewController.xib */; };
 		0AE454141952AB7A007DBEB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE454131952AB7A007DBEB9 /* Foundation.framework */; };
 		0AE454161952AB7A007DBEB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE454151952AB7A007DBEB9 /* CoreGraphics.framework */; };
 		0AE454181952AB7A007DBEB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE454171952AB7A007DBEB9 /* UIKit.framework */; };
@@ -41,6 +43,9 @@
 		0A071EBE1953B0570034A027 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0A071EBF1953B0570034A027 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		0A071EC31953EE650034A027 /* LoginCompleteDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginCompleteDelegate.h; sourceTree = "<group>"; };
+		0A071EC41954CDDA0034A027 /* TweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsViewController.h; sourceTree = "<group>"; };
+		0A071EC51954CDDA0034A027 /* TweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsViewController.m; sourceTree = "<group>"; };
+		0A071EC61954CDDA0034A027 /* TweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsViewController.xib; sourceTree = "<group>"; };
 		0AE454101952AB7A007DBEB9 /* TwitterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE454131952AB7A007DBEB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0AE454151952AB7A007DBEB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +191,9 @@
 				0A071EBD1953B0570034A027 /* LoginViewController.h */,
 				0A071EBE1953B0570034A027 /* LoginViewController.m */,
 				0A071EBF1953B0570034A027 /* LoginViewController.xib */,
+				0A071EC41954CDDA0034A027 /* TweetsViewController.h */,
+				0A071EC51954CDDA0034A027 /* TweetsViewController.m */,
+				0A071EC61954CDDA0034A027 /* TweetsViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A071EC81954CDDA0034A027 /* TweetsViewController.xib in Resources */,
 				0AE4541E1952AB7A007DBEB9 /* InfoPlist.strings in Resources */,
 				0AE454261952AB7A007DBEB9 /* Images.xcassets in Resources */,
 				0A071EC11953B0570034A027 /* LoginViewController.xib in Resources */,
@@ -329,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A071EC01953B0570034A027 /* LoginViewController.m in Sources */,
+				0A071EC71954CDDA0034A027 /* TweetsViewController.m in Sources */,
 				0AE454241952AB7A007DBEB9 /* AppDelegate.m in Sources */,
 				0AE454471952AD0B007DBEB9 /* TwitterClient.m in Sources */,
 				0AE454201952AB7A007DBEB9 /* main.m in Sources */,

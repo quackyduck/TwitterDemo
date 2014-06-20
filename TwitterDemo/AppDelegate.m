@@ -9,18 +9,31 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "TweetsViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    LoginViewController *lvc = [[LoginViewController alloc] init];
-    self.window.rootViewController = lvc;
     
-    self.mainViewController = [[UINavigationController alloc] init];
+    
+    
+    TweetsViewController *tvc = [[TweetsViewController alloc] init];
+    
+    self.mainViewController = [[UINavigationController alloc] initWithRootViewController:tvc];
+    self.mainViewController.navigationBar.barTintColor = [UIColor colorWithRed:85/255.0f green:172/255.0f blue:238/255.0f alpha:1.0f];
+    self.mainViewController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    
+    if ([[TwitterClient sharedInstance] isAuthorized]) {
+        self.window.rootViewController = self.mainViewController;
+    }
+    else {
+        LoginViewController *lvc = [[LoginViewController alloc] init];
+        self.window.rootViewController = lvc;
+    }
     
     
     self.window.backgroundColor = [UIColor whiteColor];

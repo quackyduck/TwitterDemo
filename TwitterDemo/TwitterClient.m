@@ -29,9 +29,6 @@
 - (void)loginWithDelegate:(id)delegate {
     
     self.delegate = delegate;
-
-    [self.requestSerializer removeAccessToken];
-    
     [self fetchRequestTokenWithPath:@"/oauth/request_token" method:@"POST" callbackURL:[NSURL URLWithString:@"melotwitter://oauth"] scope:nil success:^(BDBOAuthToken *requestToken) {
         
         NSString *authURL = [NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", requestToken.token];
