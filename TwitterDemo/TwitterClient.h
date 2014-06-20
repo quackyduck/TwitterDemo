@@ -7,11 +7,12 @@
 //
 
 #import <BDBOAuth1Manager/BDBOAuth1RequestOperationManager.h>
+#import "LoginCompleteDelegate.h"
 
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 
 + (id)sharedInstance;
-- (void)login;
+- (void)loginWithDelegate:(id)delegate;
 - (void)homeTimelineWithParameters:(id)parameters
                            success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginCompleteDelegate.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <LoginCompleteDelegate>
+
+- (void)loginComplete;
 
 @end

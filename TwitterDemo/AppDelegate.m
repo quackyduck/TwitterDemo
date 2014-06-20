@@ -14,10 +14,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     LoginViewController *lvc = [[LoginViewController alloc] init];
     self.window.rootViewController = lvc;
+    
+    self.mainViewController = [[UINavigationController alloc] init];
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

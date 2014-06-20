@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 - (IBAction)onLogin:(id)sender;
@@ -38,6 +39,16 @@
 }
 
 - (IBAction)onLogin:(id)sender {
-    [[TwitterClient sharedInstance] login];
+    [[TwitterClient sharedInstance] loginWithDelegate:self];
+}
+
+- (void)loginComplete {
+    NSLog(@"LOGIN COMPLETE BOYZ");
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.window addSubview:appDelegate.mainViewController.view];
+    [self.view removeFromSuperview];
+    
+    
 }
 @end

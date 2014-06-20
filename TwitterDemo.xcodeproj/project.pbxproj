@@ -40,6 +40,7 @@
 		0A071EBD1953B0570034A027 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0A071EBE1953B0570034A027 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0A071EBF1953B0570034A027 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		0A071EC31953EE650034A027 /* LoginCompleteDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginCompleteDelegate.h; sourceTree = "<group>"; };
 		0AE454101952AB7A007DBEB9 /* TwitterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE454131952AB7A007DBEB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0AE454151952AB7A007DBEB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A071EC21953EE150034A027 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0A071EC31953EE650034A027 /* LoginCompleteDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		0AE454071952AB7A007DBEB9 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +130,7 @@
 		0AE454191952AB7A007DBEB9 /* TwitterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0A071EC21953EE150034A027 /* Protocols */,
 				0AE454441952AC8A007DBEB9 /* Views */,
 				0AE454431952AC81007DBEB9 /* Controllers */,
 				0AE454421952AC79007DBEB9 /* Models */,
