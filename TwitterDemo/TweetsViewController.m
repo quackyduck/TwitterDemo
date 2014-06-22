@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *tweets;
 @property (strong, nonatomic) TweetMainCell *offscreenCell;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation TweetsViewController
@@ -32,6 +33,8 @@
     if (self) {
         self.titleLabel = [[UILabel alloc] init];
         self.tweets = [[NSMutableArray alloc] init];
+        self.refreshControl = [[UIRefreshControl alloc] init];
+        [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     }
     return self;
 }
@@ -66,6 +69,9 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Failed to get my user info %@", error);
     }];
+    
+    
+    [self.tableView addSubview:self.refreshControl];
     
     [self refresh:self];
 }
@@ -102,6 +108,7 @@
             [self.tweets addObject:tweet];
         }
         
+        [self.refreshControl endRefreshing];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
