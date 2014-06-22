@@ -18,18 +18,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="bN2-uF-xrb">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="bN2-uF-xrb">
                     <rect key="frame" x="0.0" y="136" width="320" height="432"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="432" id="ruD-KM-TDY"/>
-                    </constraints>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giK-YI-deb">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giK-YI-deb">
                     <rect key="frame" x="0.0" y="64" width="320" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -55,17 +52,6 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="giK-YI-deb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q8v-SE-8h7"/>
-                <constraint firstItem="giK-YI-deb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Qko-TM-ho7"/>
-                <constraint firstAttribute="trailing" secondItem="giK-YI-deb" secondAttribute="trailing" id="VKy-Rn-fLq"/>
-                <constraint firstAttribute="trailing" secondItem="bN2-uF-xrb" secondAttribute="trailing" id="XWU-dk-uhb"/>
-                <constraint firstItem="giK-YI-deb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bg7-5m-rm9"/>
-                <constraint firstItem="bN2-uF-xrb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="obU-A7-ogL"/>
-                <constraint firstItem="bN2-uF-xrb" firstAttribute="top" secondItem="giK-YI-deb" secondAttribute="bottom" constant="8" id="pwj-AA-Rff"/>
-                <constraint firstAttribute="bottom" secondItem="bN2-uF-xrb" secondAttribute="bottom" id="upD-at-BQ0"/>
-                <constraint firstItem="bN2-uF-xrb" firstAttribute="top" secondItem="giK-YI-deb" secondAttribute="bottom" constant="8" id="wUP-1f-pfC"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
