@@ -62,9 +62,21 @@
     return NO;
 }
 
-- (void)homeTimelineWithParameters:(id)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+- (void)homeTimelineWithParameters:(id)parameters
+                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     [self GET:@"1.1/statuses/home_timeline.json" parameters:parameters success:success failure:failure];
+}
+
+- (void)verifyMeSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:success failure:failure];
+}
+
+- (void)postTweetStatus:(NSString *)status
+                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self POST:@"1.1/statuses/update.json" parameters:@{@"status": status} success:success failure:failure];
 }
 
 @end

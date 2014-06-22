@@ -14,6 +14,8 @@
 #import "TweetMainCell.h"
 #import <AFNetworking/AFNetworking.h>
 #import "UIImageView+AFNetworking.h"
+#import "ComposeViewController.h"
+#import "User.h"
 
 @interface TweetsViewController ()
 @property (strong, nonatomic) UILabel *titleLabel;
@@ -55,6 +57,16 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(signOut:)];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(compose:)];
+    
+    [[TwitterClient sharedInstance] verifyMeSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Verifying myself %@", responseObject);
+        [User setCurrentUser:responseObject];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed to get my user info %@", error);
+    }];
+    
     [self refresh:self];
 }
 
@@ -66,6 +78,18 @@
     [self.navigationController.view addSubview:lvc.view];
     [self.view removeFromSuperview];
     
+}
+
+- (void)compose:(id)sender {
+    
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    
+    UIColor *color = [UIColor colorWithRed:85/255.0f green:172/255.0f blue:238/255.0f alpha:1.0f];
+    nvc.navigationBar.tintColor = color;
+    
+    [self presentViewController:nvc animated:YES completion:nil];
+
 }
 
 - (void)refresh:(id)sender {

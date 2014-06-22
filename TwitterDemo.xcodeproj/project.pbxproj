@@ -17,6 +17,9 @@
 		0AD69DFC19566A38004844F6 /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD69DF919566A38004844F6 /* retweet.png */; };
 		0AD69DFD19566A38004844F6 /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD69DFA19566A38004844F6 /* reply.png */; };
 		0AD69DFE19566A38004844F6 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD69DFB19566A38004844F6 /* favorite.png */; };
+		0AD69E0719568FE8004844F6 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD69E0519568FE8004844F6 /* ComposeViewController.m */; };
+		0AD69E0819568FE8004844F6 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD69E0619568FE8004844F6 /* ComposeViewController.xib */; };
+		0AD69E0B1956A12C004844F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD69E0A1956A12C004844F6 /* User.m */; };
 		0AE454141952AB7A007DBEB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE454131952AB7A007DBEB9 /* Foundation.framework */; };
 		0AE454161952AB7A007DBEB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE454151952AB7A007DBEB9 /* CoreGraphics.framework */; };
 		0AE454181952AB7A007DBEB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE454171952AB7A007DBEB9 /* UIKit.framework */; };
@@ -60,6 +63,11 @@
 		0AD69DF919566A38004844F6 /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
 		0AD69DFA19566A38004844F6 /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reply.png; sourceTree = "<group>"; };
 		0AD69DFB19566A38004844F6 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		0AD69E0419568FE8004844F6 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		0AD69E0519568FE8004844F6 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		0AD69E0619568FE8004844F6 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		0AD69E091956A12C004844F6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0AD69E0A1956A12C004844F6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0AE454101952AB7A007DBEB9 /* TwitterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE454131952AB7A007DBEB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0AE454151952AB7A007DBEB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -200,6 +208,8 @@
 				0AE454461952AD0B007DBEB9 /* TwitterClient.m */,
 				0A4EED6F19563A0600FE003F /* Tweet.h */,
 				0A4EED7019563A0600FE003F /* Tweet.m */,
+				0AD69E091956A12C004844F6 /* User.h */,
+				0AD69E0A1956A12C004844F6 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -213,6 +223,9 @@
 				0A071EC41954CDDA0034A027 /* TweetsViewController.h */,
 				0A071EC51954CDDA0034A027 /* TweetsViewController.m */,
 				0A071EC61954CDDA0034A027 /* TweetsViewController.xib */,
+				0AD69E0419568FE8004844F6 /* ComposeViewController.h */,
+				0AD69E0519568FE8004844F6 /* ComposeViewController.m */,
+				0AD69E0619568FE8004844F6 /* ComposeViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -305,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A071EC81954CDDA0034A027 /* TweetsViewController.xib in Resources */,
+				0AD69E0819568FE8004844F6 /* ComposeViewController.xib in Resources */,
 				0A4EED6E19561A6C00FE003F /* TweetMainCell.xib in Resources */,
 				0AE4541E1952AB7A007DBEB9 /* InfoPlist.strings in Resources */,
 				0AE454261952AB7A007DBEB9 /* Images.xcassets in Resources */,
@@ -365,11 +379,13 @@
 			files = (
 				0A071EC01953B0570034A027 /* LoginViewController.m in Sources */,
 				0A071EC71954CDDA0034A027 /* TweetsViewController.m in Sources */,
+				0AD69E0B1956A12C004844F6 /* User.m in Sources */,
 				0AE454241952AB7A007DBEB9 /* AppDelegate.m in Sources */,
 				0A4EED7119563A0600FE003F /* Tweet.m in Sources */,
 				0A4EED6D19561A6C00FE003F /* TweetMainCell.m in Sources */,
 				0AE454471952AD0B007DBEB9 /* TwitterClient.m in Sources */,
 				0AE454201952AB7A007DBEB9 /* main.m in Sources */,
+				0AD69E0719568FE8004844F6 /* ComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
