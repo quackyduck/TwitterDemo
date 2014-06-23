@@ -13,6 +13,8 @@
 #import <AFNetworking/AFNetworking.h>
 #import "UIImageView+AFNetworking.h"
 
+#import "TwitterClient.h"
+
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) DetailTweetCell *detailViewCell;
@@ -85,12 +87,34 @@
     return height + 1;
 }
 
+- (void)favoriteButtonClicked:(id)sender {
+    [[TwitterClient sharedInstance] favoriteTweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Successfully favorited tweet %@", self.tweetDetails.tweetId);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed to favorite tweet %@", self.tweetDetails.tweetId);
+    }];
+    
+    
+}
 
+- (void)retweetButtonClicked:(id)sender {
+    [[TwitterClient sharedInstance] retweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Successfully retweeted tweet %@", self.tweetDetails.tweetId);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed to retweet tweet %@", self.tweetDetails.tweetId);
+    }];
+    
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSURL *profileURL = [NSURL URLWithString:self.tweetDetails.profileURL];
     NSURLRequest *imageRequest = [NSURLRequest requestWithURL:profileURL];
+    
+    [self.detailViewCell.favoriteButton addTarget:self action:@selector(favoriteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.detailViewCell.retweetButton addTarget:self action:@selector(retweetButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.detailViewCell.profileImageView setImageWithURLRequest:imageRequest placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.detailViewCell.profileImageView.alpha = 0.0;
