@@ -11,6 +11,10 @@
 		0A071EC11953B0570034A027 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A071EBF1953B0570034A027 /* LoginViewController.xib */; };
 		0A071EC71954CDDA0034A027 /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A071EC51954CDDA0034A027 /* TweetsViewController.m */; };
 		0A071EC81954CDDA0034A027 /* TweetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A071EC61954CDDA0034A027 /* TweetsViewController.xib */; };
+		0A22B3041957779400252FE2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A22B3021957779400252FE2 /* DetailViewController.m */; };
+		0A22B3051957779400252FE2 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A22B3031957779400252FE2 /* DetailViewController.xib */; };
+		0A22B3091957901E00252FE2 /* DetailTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A22B3071957901E00252FE2 /* DetailTweetCell.m */; };
+		0A22B30A1957901E00252FE2 /* DetailTweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A22B3081957901E00252FE2 /* DetailTweetCell.xib */; };
 		0A4EED6D19561A6C00FE003F /* TweetMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EED6B19561A6C00FE003F /* TweetMainCell.m */; };
 		0A4EED6E19561A6C00FE003F /* TweetMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A4EED6C19561A6C00FE003F /* TweetMainCell.xib */; };
 		0A4EED7119563A0600FE003F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EED7019563A0600FE003F /* Tweet.m */; };
@@ -55,6 +59,12 @@
 		0A071EC41954CDDA0034A027 /* TweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsViewController.h; sourceTree = "<group>"; };
 		0A071EC51954CDDA0034A027 /* TweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsViewController.m; sourceTree = "<group>"; };
 		0A071EC61954CDDA0034A027 /* TweetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetsViewController.xib; sourceTree = "<group>"; };
+		0A22B3011957779400252FE2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		0A22B3021957779400252FE2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		0A22B3031957779400252FE2 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		0A22B3061957901E00252FE2 /* DetailTweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTweetCell.h; sourceTree = "<group>"; };
+		0A22B3071957901E00252FE2 /* DetailTweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTweetCell.m; sourceTree = "<group>"; };
+		0A22B3081957901E00252FE2 /* DetailTweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTweetCell.xib; sourceTree = "<group>"; };
 		0A4EED6A19561A6C00FE003F /* TweetMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetMainCell.h; sourceTree = "<group>"; };
 		0A4EED6B19561A6C00FE003F /* TweetMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetMainCell.m; sourceTree = "<group>"; };
 		0A4EED6C19561A6C00FE003F /* TweetMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetMainCell.xib; sourceTree = "<group>"; };
@@ -226,6 +236,9 @@
 				0AD69E0419568FE8004844F6 /* ComposeViewController.h */,
 				0AD69E0519568FE8004844F6 /* ComposeViewController.m */,
 				0AD69E0619568FE8004844F6 /* ComposeViewController.xib */,
+				0A22B3011957779400252FE2 /* DetailViewController.h */,
+				0A22B3021957779400252FE2 /* DetailViewController.m */,
+				0A22B3031957779400252FE2 /* DetailViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -236,6 +249,9 @@
 				0A4EED6A19561A6C00FE003F /* TweetMainCell.h */,
 				0A4EED6B19561A6C00FE003F /* TweetMainCell.m */,
 				0A4EED6C19561A6C00FE003F /* TweetMainCell.xib */,
+				0A22B3061957901E00252FE2 /* DetailTweetCell.h */,
+				0A22B3071957901E00252FE2 /* DetailTweetCell.m */,
+				0A22B3081957901E00252FE2 /* DetailTweetCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -324,8 +340,10 @@
 				0AE454261952AB7A007DBEB9 /* Images.xcassets in Resources */,
 				0AD69DFC19566A38004844F6 /* retweet.png in Resources */,
 				0AD69DFD19566A38004844F6 /* reply.png in Resources */,
+				0A22B3051957779400252FE2 /* DetailViewController.xib in Resources */,
 				0A071EC11953B0570034A027 /* LoginViewController.xib in Resources */,
 				0AD69DFE19566A38004844F6 /* favorite.png in Resources */,
+				0A22B30A1957901E00252FE2 /* DetailTweetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,9 +397,11 @@
 			files = (
 				0A071EC01953B0570034A027 /* LoginViewController.m in Sources */,
 				0A071EC71954CDDA0034A027 /* TweetsViewController.m in Sources */,
+				0A22B3091957901E00252FE2 /* DetailTweetCell.m in Sources */,
 				0AD69E0B1956A12C004844F6 /* User.m in Sources */,
 				0AE454241952AB7A007DBEB9 /* AppDelegate.m in Sources */,
 				0A4EED7119563A0600FE003F /* Tweet.m in Sources */,
+				0A22B3041957779400252FE2 /* DetailViewController.m in Sources */,
 				0A4EED6D19561A6C00FE003F /* TweetMainCell.m in Sources */,
 				0AE454471952AD0B007DBEB9 /* TwitterClient.m in Sources */,
 				0AE454201952AB7A007DBEB9 /* main.m in Sources */,

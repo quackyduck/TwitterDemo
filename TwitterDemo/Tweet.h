@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) NSDate *createdDate;
+@property NSInteger retweetCount;
+@property NSInteger favoriteCount;
 
 - (NSString *)tweetFormattedDate;
 

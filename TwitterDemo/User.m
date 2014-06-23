@@ -17,7 +17,9 @@ static User *currentUser = nil;
     
     self.name = rawData[@"name"];
     self.screenName = rawData[@"screen_name"];
-    self.profileImageURL = rawData[@"profile_image_url"];
+    
+    NSString *profileURL = rawData[@"profile_image_url"];
+    self.profileImageURL = [profileURL stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
     
     return self;
 }

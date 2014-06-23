@@ -13,10 +13,13 @@
 - (id)initWithDictionary:(NSDictionary *)rawData {
     self = [super init];
     
-    self.profileURL = rawData[@"user"][@"profile_image_url"];
+    NSString *profileURL = rawData[@"user"][@"profile_image_url"];
+    self.profileURL = [profileURL stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
     self.screenName = rawData[@"user"][@"screen_name"];
     self.name = rawData[@"user"][@"name"];
     self.text = rawData[@"text"];
+    self.retweetCount = [rawData[@"retweet_count"] intValue];
+    self.favoriteCount = [rawData[@"favorite_count"] intValue];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];

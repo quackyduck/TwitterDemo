@@ -17,6 +17,8 @@
 #import "ComposeViewController.h"
 #import "User.h"
 
+#import "DetailViewController.h"
+
 @interface TweetsViewController ()
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -100,7 +102,7 @@
 
 - (void)refresh:(id)sender {
     [[TwitterClient sharedInstance] homeTimelineWithParameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+        NSLog(@"Timeline: %@", responseObject);
         [self.tweets removeAllObjects];
         
         for (NSDictionary *tweetData in responseObject) {
@@ -178,6 +180,14 @@
     }];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    DetailViewController *dvc = [[DetailViewController alloc] initWithTweet:self.tweets[indexPath.row]];
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 
