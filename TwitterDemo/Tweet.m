@@ -20,6 +20,7 @@
     self.text = rawData[@"text"];
     self.retweetCount = [rawData[@"retweet_count"] intValue];
     self.favoriteCount = [rawData[@"favorite_count"] intValue];
+    self.tweetId = rawData[@"id_str"];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];

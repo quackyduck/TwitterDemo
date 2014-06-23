@@ -23,4 +23,12 @@
 - (void)postTweetStatus:(NSString *)status
                 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+- (void)favoriteTweetId:(NSString *)tweetId
+                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+- (void)retweetId:(NSString *)tweetId
+          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end
