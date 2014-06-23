@@ -21,5 +21,6 @@
 @property NSInteger favoriteCount;
 
 - (NSString *)tweetFormattedDate;
+- (NSString *)tweetDetailedDate;
 
 @end

@@ -126,7 +126,6 @@
 
 - (void)configureCell:(TweetMainCell *)cell forListing:(Tweet *)tweet {
     cell.tweetBodyLabel.text = tweet.text;
-    [cell.tweetBodyLabel sizeToFit];
     cell.nameLabel.text = tweet.name;
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.screenName];
     cell.timeLabel.text = [tweet tweetFormattedDate];

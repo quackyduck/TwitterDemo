@@ -55,8 +55,11 @@
     self.detailViewCell.screenNameLabel.text = self.tweetDetails.screenName;
     self.detailViewCell.tweetTextLabel.text = self.tweetDetails.text;
     
-    [self.detailViewCell sizeToFit];
+    // No idea why this works!
+    [self.detailViewCell.tweetTextLabel setPreferredMaxLayoutWidth:300.f];
     
+    self.detailViewCell.dateLabel.text = self.tweetDetails.tweetDetailedDate;
+
     self.detailViewCell.retweetCountLabel.text = [NSString stringWithFormat:@"%ld", self.tweetDetails.retweetCount];
     self.detailViewCell.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld", self.tweetDetails.favoriteCount];
 }
