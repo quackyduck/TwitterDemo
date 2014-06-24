@@ -13,6 +13,8 @@
 #import <AFNetworking/AFNetworking.h>
 #import "UIImageView+AFNetworking.h"
 
+#import "ComposeViewController.h"
+
 #import "TwitterClient.h"
 
 @interface DetailViewController ()
@@ -87,7 +89,46 @@
     return height + 1;
 }
 
+- (void)replyButtonClicked:(id)sender {
+    NSLog(@"Compose reply!");
+    ComposeViewController *cvc = [[ComposeViewController alloc] init];
+    cvc.placeHolderText = [NSString stringWithFormat:@"@%@ ", self.tweetDetails.screenName];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:cvc];
+    
+    UIColor *color = [UIColor colorWithRed:85/255.0f green:172/255.0f blue:238/255.0f alpha:1.0f];
+    nvc.navigationBar.tintColor = color;
+    
+    [self presentViewController:nvc animated:YES completion:nil];
+}
+
 - (void)favoriteButtonClicked:(id)sender {
+    
+    // toggle
+    self.tweetDetails.didFavorite = !self.tweetDetails.didFavorite;
+    if (self.tweetDetails.didFavorite) {
+        [self.detailViewCell.favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+        
+        [[TwitterClient sharedInstance] favoriteTweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Successfully favorited tweet %@", self.tweetDetails.tweetId);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failed to favorite tweet %@", self.tweetDetails.tweetId);
+        }];
+
+    }
+    else {
+        [self.detailViewCell.favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite"] forState:UIControlStateNormal];
+        
+        [[TwitterClient sharedInstance] destroyFavoriteTweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Successfully un-favorited tweet %@", self.tweetDetails.tweetId);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failed to unfavorite tweet %@", self.tweetDetails.tweetId);
+        }];
+
+    }
+    
     [[TwitterClient sharedInstance] favoriteTweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successfully favorited tweet %@", self.tweetDetails.tweetId);
         
@@ -99,11 +140,20 @@
 }
 
 - (void)retweetButtonClicked:(id)sender {
-    [[TwitterClient sharedInstance] retweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Successfully retweeted tweet %@", self.tweetDetails.tweetId);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failed to retweet tweet %@", self.tweetDetails.tweetId);
-    }];
+    
+    // Can retweet but cannot un-retweet
+    self.tweetDetails.didRetweet = !self.tweetDetails.didRetweet;
+    if (self.tweetDetails.didRetweet) {
+        [self.detailViewCell.retweetButton setBackgroundImage:[UIImage imageNamed:@"retweet_on"] forState:UIControlStateNormal];
+        [[TwitterClient sharedInstance] retweetId:self.tweetDetails.tweetId success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Successfully retweeted tweet %@", self.tweetDetails.tweetId);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failed to retweet tweet %@", self.tweetDetails.tweetId);
+        }];
+    }
+
+    
+    
     
 }
 
@@ -115,6 +165,8 @@
     [self.detailViewCell.favoriteButton addTarget:self action:@selector(favoriteButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.detailViewCell.retweetButton addTarget:self action:@selector(retweetButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.detailViewCell.replyButton addTarget:self action:@selector(replyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.detailViewCell.profileImageView setImageWithURLRequest:imageRequest placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.detailViewCell.profileImageView.alpha = 0.0;

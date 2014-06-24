@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+
 
 @end
 
@@ -48,6 +48,10 @@
     
     self.tweetTextView.contentInset = UIEdgeInsetsMake(0.0,0.0,0,0.0);
     [self.tweetTextView becomeFirstResponder];
+    
+    if (self.placeHolderText) {
+        self.tweetTextView.text = self.placeHolderText;
+    }
     
     NSURL *profileURL = [NSURL URLWithString:[[User currentUser] profileImageURL]];
     NSURLRequest *imageRequest = [NSURLRequest requestWithURL:profileURL];

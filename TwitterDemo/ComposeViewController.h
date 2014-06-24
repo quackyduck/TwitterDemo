@@ -11,5 +11,7 @@
 @class Tweet;
 
 @interface ComposeViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+@property (strong, nonatomic) NSString *placeHolderText;
 
 @end

@@ -28,6 +28,10 @@
                 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+- (void)destroyFavoriteTweetId:(NSString *)tweetId
+                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 - (void)retweetId:(NSString *)tweetId
           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;

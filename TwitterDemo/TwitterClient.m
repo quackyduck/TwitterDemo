@@ -85,6 +85,12 @@
     [self POST:@"1.1/favorites/create.json" parameters:@{@"id": tweetId} success:success failure:failure];
 }
 
+- (void)destroyFavoriteTweetId:(NSString *)tweetId
+                       success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self POST:@"1.1/favorites/destroy.json" parameters:@{@"id": tweetId} success:success failure:failure];
+}
+
 - (void)retweetId:(NSString *)tweetId
           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
