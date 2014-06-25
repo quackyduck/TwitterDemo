@@ -3,7 +3,7 @@ TwitterDemo
 
 This is a simple Twitter client.
 
-Time spent: 0 hours
+Time spent: 15 hours
 
 Completed user stories:
 
@@ -23,10 +23,10 @@ Completed user stories:
 
 Notes:
 
-Best I could do!
+Fun. Spent a lot of time on the autolayout stuff. I have a bunch of the foundation for the optional exercises but nothing I'd like to share yet.
 
 Walkthrough of all user stories:
 
-> ![Video Walkthrough](UserStoriesWeek1.gif)
+> ![Video Walkthrough](UserStoriesWeek3.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
