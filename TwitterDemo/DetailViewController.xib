@@ -15,13 +15,19 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hNY-Q3-LhI">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hNY-Q3-LhI">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hNY-Q3-LhI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LAH-Nh-SmP"/>
+                <constraint firstAttribute="bottom" secondItem="hNY-Q3-LhI" secondAttribute="bottom" id="LU5-Jv-5qx"/>
+                <constraint firstAttribute="trailing" secondItem="hNY-Q3-LhI" secondAttribute="trailing" id="gxs-Y5-Qfr"/>
+                <constraint firstItem="hNY-Q3-LhI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mie-UU-wTb"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
