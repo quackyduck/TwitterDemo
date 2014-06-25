@@ -56,7 +56,7 @@
     self.detailViewCell = nibs[0];
     
     self.detailViewCell.nameLabel.text = self.tweetDetails.name;
-    self.detailViewCell.screenNameLabel.text = self.tweetDetails.screenName;
+    self.detailViewCell.screenNameLabel.text = [NSString stringWithFormat:@"@%@", self.tweetDetails.screenName];
     self.detailViewCell.tweetTextLabel.text = self.tweetDetails.text;
     
     // No idea why this works!
@@ -151,10 +151,6 @@
             NSLog(@"Failed to retweet tweet %@", self.tweetDetails.tweetId);
         }];
     }
-
-    
-    
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
