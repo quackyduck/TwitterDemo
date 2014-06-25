@@ -57,8 +57,8 @@
     
     UINib *retweetCellNib = [UINib nibWithNibName:@"RetweetCell" bundle:nil];
     [self.tableView registerNib:retweetCellNib forCellReuseIdentifier:@"retweetCell"];
-    nibs = [retweetCellNib instantiateWithOwner:nil options:nil];
-    self.offscreenRetweetCell = nibs[0];
+    NSArray *retweetNibs = [retweetCellNib instantiateWithOwner:nil options:nil];
+    self.offscreenRetweetCell = retweetNibs[0];
     
     
     self.titleLabel.text = @"Home";
@@ -184,7 +184,7 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     if (tweet.isRetweet) {
-        RetweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"reTweetCell"];
+        RetweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"retweetCell"];
         [self configureCell:cell forListing:tweet];
         
         NSURL *profileURL = [NSURL URLWithString:tweet.profileURL];
@@ -212,37 +212,34 @@
         
         return cell;
     }
-    else {
-        TweetMainCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"tweetCell"];
-        [self configureCell:cell forListing:tweet];
-        
-        NSURL *profileURL = [NSURL URLWithString:tweet.profileURL];
-        NSURLRequest *imageRequest = [NSURLRequest requestWithURL:profileURL];
-        
-        NSLog(@"Download image from %@", tweet.profileURL);
-        
-        [cell.profileImageView setImageWithURLRequest:imageRequest placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            cell.profileImageView.alpha = 0.0;
-            NSLog(@"Downloaded profile image.");
-            
-            UIGraphicsBeginImageContextWithOptions(cell.profileImageView.bounds.size, NO, [UIScreen mainScreen].scale);
-            [[UIBezierPath bezierPathWithRoundedRect:cell.profileImageView.bounds cornerRadius:4.0] addClip];
-            [image drawInRect:cell.profileImageView.bounds];
-            
-            cell.profileImageView.image = UIGraphicsGetImageFromCurrentImageContext();
-            
-            [UIView animateWithDuration:0.25
-                             animations:^{
-                                 cell.profileImageView.alpha = 1.0;
-                             }];
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            NSLog(@"Failed to load Yelp item's pic.");
-        }];
-        
-        return cell;
-    }
+
+    TweetMainCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"tweetCell"];
+    [self configureCell:cell forListing:tweet];
     
-    return nil;
+    NSURL *profileURL = [NSURL URLWithString:tweet.profileURL];
+    NSURLRequest *imageRequest = [NSURLRequest requestWithURL:profileURL];
+    
+    NSLog(@"Download image from %@", tweet.profileURL);
+    
+    [cell.profileImageView setImageWithURLRequest:imageRequest placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        cell.profileImageView.alpha = 0.0;
+        NSLog(@"Downloaded profile image.");
+        
+        UIGraphicsBeginImageContextWithOptions(cell.profileImageView.bounds.size, NO, [UIScreen mainScreen].scale);
+        [[UIBezierPath bezierPathWithRoundedRect:cell.profileImageView.bounds cornerRadius:4.0] addClip];
+        [image drawInRect:cell.profileImageView.bounds];
+        
+        cell.profileImageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        [UIView animateWithDuration:0.25
+                         animations:^{
+                             cell.profileImageView.alpha = 1.0;
+                         }];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"Failed to load Yelp item's pic.");
+    }];
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
