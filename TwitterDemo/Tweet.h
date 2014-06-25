@@ -18,8 +18,10 @@
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) NSDate *createdDate;
 @property (strong, nonatomic) NSString *tweetId;
+@property (strong, nonatomic) NSString *retweetScreenName;
 @property BOOL didFavorite;
 @property BOOL didRetweet;
+@property BOOL isRetweet;
 @property NSInteger retweetCount;
 @property NSInteger favoriteCount;
 

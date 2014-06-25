@@ -13,18 +13,31 @@
 - (id)initWithDictionary:(NSDictionary *)rawData {
     self = [super init];
     
-    NSString *profileURL = rawData[@"user"][@"profile_image_url"];
+    NSDictionary *jsonData = rawData;
+    
+    if (rawData[@"retweeted_status"]) {
+        // This is a retweet!
+        self.retweetScreenName = rawData[@"user"][@"screen_name"];
+        jsonData = rawData[@"retweeted_status"];
+        self.isRetweet = YES;
+    }
+    else {
+        self.retweetScreenName = @"";
+    }
+    
+    NSString *profileURL = jsonData[@"user"][@"profile_image_url"];
     self.profileURL = [profileURL stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
-    self.screenName = rawData[@"user"][@"screen_name"];
-    self.name = rawData[@"user"][@"name"];
-    self.text = rawData[@"text"];
-    self.retweetCount = [rawData[@"retweet_count"] intValue];
-    self.favoriteCount = [rawData[@"favorite_count"] intValue];
-    self.tweetId = rawData[@"id_str"];
+    self.screenName = jsonData[@"user"][@"screen_name"];
+    self.name = jsonData[@"user"][@"name"];
+    self.text = jsonData[@"text"];
+    self.retweetCount = [jsonData[@"retweet_count"] intValue];
+    self.favoriteCount = [jsonData[@"favorite_count"] intValue];
+    self.tweetId = jsonData[@"id_str"];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
     
+    // Leave this as raw data
     self.createdDate = [dateFormatter dateFromString:rawData[@"created_at"]];
     
     return self;
